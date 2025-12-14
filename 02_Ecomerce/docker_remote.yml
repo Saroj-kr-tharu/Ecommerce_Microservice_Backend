@@ -1,0 +1,50 @@
+version: "3.9"
+networks:
+  Ecommerce_net:
+    driver: bridge
+  
+volumes:
+  mysql_data_vol:
+  ecommerce_backend_data_vol:
+
+services:
+
+  mysql_service:
+    image: mysql:8.0
+    container_name: mysql_Ecommerce
+    ports:
+      - "3308:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    volumes:
+      - mysql_data_vol:/var/lib/mysql
+    networks:
+      - Ecommerce_net
+    restart: unless-stopped
+
+    
+    
+  ecommerce_backend_service:
+    image: sarojdockerworkspace/ecommerce_backend:latest
+    container_name: ecommerce_backend_service
+    env_file:
+      - docker_compose.env
+    ports:
+      - "8000:8000"
+    networks:
+      - Ecommerce_net
+    depends_on:
+      - mysql_service
+    restart: unless-stopped
+    command: >
+      sh -c "
+        npm install &&
+        cd src &&
+        npx sequelize-cli db:create --env development --config config/docker-config.json &&
+        npx sequelize-cli db:migrate --env development --config config/docker-config.json &&
+        npx sequelize-cli db:seed:all --env development --config config/docker-config.json &&
+        cd .. &&
+        npm start
+      "
+    
