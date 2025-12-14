@@ -1,0 +1,49 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables
+.env
+.env.*
+
+# Build output
+dist/
+build/
+coverage/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Docker
+*.local
+*.pid
+
+# VS Code
+.vscode/
+
+# Misc
+*.tgz
+.idea/
+*.swp
+
+# Sequelize migrations
+*.sqlite
+
+# Ignore by service
+01_ApiGateway/node_modules/
+02_Ecomerce/node_modules/
+03_RemainderMicroService/node_modules/
+05_Payment_microservice/node_modules/
