@@ -9,8 +9,7 @@ RemainderMicroService is a microservice designed to handle email-based reminders
 - **Email Notifications**:
   - Login Information
   - Payment Information
-  - Top 10 Movie Shows
-  - Ticket Details
+  - Order Details
 
 - **RabbitMQ Message Broker**: Handles asynchronous communication between services.
 - **Nodemailer**: Sends email notifications directly to users.
