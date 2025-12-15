@@ -42,6 +42,8 @@ Thumbs.db
 # Sequelize migrations
 *.sqlite
 
+docker_remote.yml
+
 # Ignore by service
 01_ApiGateway/node_modules/
 02_Ecomerce/node_modules/
