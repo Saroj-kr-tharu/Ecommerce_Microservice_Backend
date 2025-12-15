@@ -7,7 +7,7 @@ const cors = require("cors");
 const {  FORTEND_URL, ECOMMERCE_BACKEND_URL, PAYMENT_BACKEND_URL } = require("./serverConfig/serverConfig");
 
 const app = express();
-const PORT = 3001;
+const PORT = 3000;
 
 const limiter = rateLimit({
   windowMs: 2 * 60 * 1000,
@@ -17,7 +17,9 @@ const limiter = rateLimit({
 app.use(morgan("combined"));
 app.use(limiter);
 
-
+app.get('/ping', (req, res) => {
+  res.status(200).json({ message: 'api gateway is good to go' });
+});
 
 
 app.use(

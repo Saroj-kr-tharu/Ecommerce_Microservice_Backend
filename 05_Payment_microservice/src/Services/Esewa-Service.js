@@ -3,7 +3,7 @@ const { ESEWA_PRODUCT_CODE, ESEWA_SECRET_KEY, ESEWA_GATEWAY_URL } = require('../
 const crypto = require('crypto');
 const paymentTransactionService = require('./PaymentTransactionService');
 const rabbitMqService = require('../Utlis/messageQueue');
-const { MOVIE_BOOKING_URL, MARKETMANDU_URL } = require('../config/serverConfig');
+const {  MARKETMANDU_URL } = require('../config/serverConfig');
 
 class EsewaService {
 

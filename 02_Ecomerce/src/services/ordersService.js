@@ -250,7 +250,7 @@ class OrdersService extends CurdService {
             }
 
 
-
+ 
             // 2️ Calculate tax, shipping, total
             const tax = subtotal * 0.13; // example: 13% tax
             const shippingFee = 50;  // fixed now 
@@ -383,7 +383,7 @@ class OrdersService extends CurdService {
             }
 
 
-            // console.log('Link => ', link, " reqBody => ", reqBody)
+            console.log(' from payment url  Link => ', link, " reqBody => ", reqBody)
             const axiosResult = await axios.post(link, reqBody, {
                 headers: {
                     'Content-Type': 'application/json'

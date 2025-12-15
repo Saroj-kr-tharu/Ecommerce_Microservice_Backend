@@ -5,7 +5,6 @@ const  {USER_REPO, OTP_Repo} = require('../repository/index')
 
 const bcryptHelper = require('../utlis/bcryptHelper');
 const {jwt_helper} = require('../utlis/jwtHelper');
-const generateOtpEmail = require('../../../03_RemainderMicroService/src/utlis/Template/emailTemplate/otpTempalte')
 const {  AppError, HttpsStatusCodes, ServiceError} = require('../utlis/index');
 const sendMessageToQueueService = require("./queueService");
 

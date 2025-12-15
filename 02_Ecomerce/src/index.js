@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const cors = require("cors");
 
 const cookieParser = require('cookie-parser')
 
@@ -13,31 +12,6 @@ const serverSetupAndStart = async () => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}))
     app.use(cookieParser());
-
-    // app.use(
-    // cors({
-    //     origin: function (origin, callback) {
-    //     const allowedOrigins = ['http://localhost:4200'];
-    //     if (!origin || allowedOrigins.includes(origin)) {
-    //         callback(null, true);
-    //     } else {
-    //         callback(new Error('Not allowed by CORS'));
-    //     }
-    //     },
-    //     credentials: true,
-    //     methods: ['GET', 'POST', 'DELETE', 'PATCH'],
-    //     allowedHeaders: ['Content-Type', 'Authorization', 'x-access-token']
-    // })
-    // );
-
-
-   app.use(cors({
-  origin: 'http://localhost:4200',  // <-- Angular frontend URL
-  credentials: true,
-  methods: ['GET','POST','PUT','DELETE','PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'x-access-token']
-}));
-
 
     
     

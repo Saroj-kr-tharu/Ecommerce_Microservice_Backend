@@ -1,6 +1,7 @@
 FROM node:18-alpine
-# from the base image node 
-WORKDIR /movie_booking_app/developer/backend/apigateway
+# from the base image node
+
+WORKDIR /Ecommerce/backend/developer/apigateway
 # working directory define 
 
 COPY package*.json ./
@@ -15,3 +16,4 @@ COPY . .
 
 CMD [ "npm", "start" ]
 # cmd when container is on 
+

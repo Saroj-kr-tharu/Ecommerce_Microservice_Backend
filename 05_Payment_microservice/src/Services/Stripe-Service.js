@@ -1,5 +1,5 @@
 const paymentTransactionService = require('./PaymentTransactionService');
-const { MARKETMANDU_URL } = require('../config/serverConfig');
+const { MARKETMANDU_URL, APIGATEWAY_BACKEND_URL } = require('../config/serverConfig');
 const { STRIPE_FAILED_URL, STRIPE_SUCCESS_URL } = require('../config/stripeConfig');
 const stripe = require('../config/stripeConnect');
 const rabbitMqService = require('../Utlis/messageQueue');
@@ -14,8 +14,9 @@ class StripeService {
             console.log('data fro stripe intialize => ', data)
             const products = await Promise.all(
                 data.items.map(async (item) => {
-
-                    const linkRes = `${MARKETMANDU_URL}/product?id=${item.productId}`;
+                    
+                    // const linkRes = `${MARKETMANDU_URL}/product?id=${item.productId}`;
+                    const linkRes = `${APIGATEWAY_BACKEND_URL}/marketmandu/product?id=${item.productId}`; 
 
                     const response = await axios.get(linkRes);
 
@@ -85,7 +86,7 @@ class StripeService {
             // Retrieve the session details using the session ID
             const session = await stripe.checkout.sessions.retrieve(sessionId);
             // Check the payment status
-            const paymentStatus = session.payment_status; // Possible values: 'paid', 'unpaid', 'no_payment_required'
+            const paymentStatus = session.payment_status;
 
             return paymentStatus;
         } catch (error) {

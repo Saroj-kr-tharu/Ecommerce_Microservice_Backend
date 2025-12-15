@@ -3,7 +3,8 @@
     "username": "root",
     "password": "12345",
     "database": "RemainderService_db_DEV",
-    "host": "127.0.0.1",
+    "host": "mysql_service",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
